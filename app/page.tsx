@@ -1,19 +1,19 @@
 "use client"
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { BlocChart } from "@/components/bloc-chart"
+import { BrazilMap } from "@/components/brazil-map"
+import { MyProjection } from "@/components/my-projection"
+import { ProjectionChart } from "@/components/projection-chart"
+import { SenatorCard } from "@/components/senator-card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
-import { Search, Filter, TrendingUp, TrendingDown, Minus } from "lucide-react"
-import { BrazilMap } from "@/components/brazil-map"
-import { SenatorCard } from "@/components/senator-card"
-import { BlocChart } from "@/components/bloc-chart"
-import { ProjectionChart } from "@/components/projection-chart"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { senateData } from "@/lib/senate-data"
-import { MyProjection } from "@/components/my-projection"
+import { Filter, GithubIcon, Minus, Search, TrendingDown, TrendingUp } from "lucide-react"
+import { useState } from "react"
 
 export default function SenateDashboard() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -60,6 +60,19 @@ export default function SenateDashboard() {
             Dashboard interativo para análise das eleições do Senado Federal brasileiro de 2026, incluindo composição
             atual, projeções e análise estratégica por blocos políticos.
           </p>
+          <div className="text-sm text-gray-600 flex items-center justify-center flex-row">
+            Feito por{" "}
+            <a href="https://github.com/ArthurDias01" className="underline ml-2" target="_blank" rel="noopener noreferrer">
+              Arthur Dias
+            </a>
+            <a
+              href="https://github.com/ArthurDias01/eleicoes-senado-2026/blob/main/lib/senate-data.ts"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon className="w-4 h-4 ml-2" />
+            </a>
+          </div>
         </div>
 
         {/* Summary Cards */}
