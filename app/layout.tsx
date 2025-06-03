@@ -1,10 +1,16 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from 'next';
+import { Geist } from 'next/font/google';
+
+const geist = Geist({
+  subsets: ['latin'],
+})
+
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Projeção de Senadores 2026',
+  description: 'Projeção de Senadores 2026',
+  generator: 'Next.js',
 }
 
 export default function RootLayout({
@@ -13,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR" className={`${geist.className}`}>
       <body>{children}</body>
     </html>
   )

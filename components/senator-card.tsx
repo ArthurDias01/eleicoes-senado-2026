@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import type { Senator } from "@/lib/senate-data"
 
 interface SenatorCardProps {
@@ -23,14 +23,29 @@ export function SenatorCard({ senator }: SenatorCardProps) {
   return (
     <Card className="hover:shadow-md transition-shadow">
       <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
-          <div>
-            <h3 className="font-semibold text-lg leading-tight">{senator.name}</h3>
-            <p className="text-sm text-gray-600">{senator.state}</p>
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0">
+            <img
+              src={senator.image}
+              alt={senator.name}
+              className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(senator.name)}&background=e5e7eb&color=374151&size=64`;
+              }}
+            />
           </div>
-          <Badge variant="outline" className="text-xs">
-            {senator.party}
-          </Badge>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-start justify-between">
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-lg leading-tight truncate">{senator.name}</h3>
+                <p className="text-sm text-gray-600">{senator.state}</p>
+              </div>
+              <Badge variant="outline" className="text-xs ml-2 flex-shrink-0">
+                {senator.party}
+              </Badge>
+            </div>
+          </div>
         </div>
       </CardHeader>
       <CardContent className="pt-0">
