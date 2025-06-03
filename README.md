@@ -41,7 +41,7 @@ Um dashboard completo e interativo para análise das eleições do Senado Federa
 ## 🚀 Como Usar
 
 ### Instalação
-```bash
+\`\`\`bash
 # Clone o repositório
 git clone https://github.com/ArthurDias01/senado-federal-2026.git
 
@@ -50,7 +50,7 @@ npm install
 
 # Execute o projeto
 npm run dev
-```
+\`\`\`
 
 ### Navegação
 1. **Visão Geral**: Explore a composição atual do Senado

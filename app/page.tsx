@@ -19,7 +19,7 @@ export default function SenateDashboard() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedBloc, setSelectedBloc] = useState<string>("all")
   const [selectedState, setSelectedState] = useState<string>("all")
-  const [userProjections, setUserProjections] = useState<Record<string, string>>({})
+  const [userProjections, setUserProjections] = useState<Record<string, string[]>>({})
 
   const filteredSenators = senateData.senators.filter((senator) => {
     const matchesSearch =
@@ -62,7 +62,12 @@ export default function SenateDashboard() {
           </p>
           <div className="text-sm text-gray-600 flex items-center justify-center flex-row">
             Feito por{" "}
-            <a href="https://github.com/ArthurDias01" className="underline ml-2" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/ArthurDias01"
+              className="underline ml-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Arthur Dias
             </a>
             <a
@@ -92,8 +97,8 @@ export default function SenateDashboard() {
               <CardTitle className="text-sm font-medium text-gray-600">Vagas em Disputa 2026</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-orange-600">27</div>
-              <p className="text-xs text-gray-500">1 por estado</p>
+              <div className="text-2xl font-bold text-orange-600">54</div>
+              <p className="text-xs text-gray-500">2 por estado</p>
             </CardContent>
           </Card>
 

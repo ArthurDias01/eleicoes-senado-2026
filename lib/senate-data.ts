@@ -57,7 +57,7 @@ export const senateData = {
       upForReelection: true,
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Foto_oficial_de_Marcio_Bittar.jpg/330px-Foto_oficial_de_Marcio_Bittar.jpg"
     },
-    { name: "SÉRGIO PETECÃO", party: "PSD", state: "AC", bloc: "Centro", termEnd: "2029", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Senadores_da_56%C2%AA_Legislatura_%2840052646353%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_%2840052646353%29.jpg' },
+    { name: "SÉRGIO PETECÃO", party: "PSD", state: "AC", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Senadores_da_56%C2%AA_Legislatura_%2840052646353%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_%2840052646353%29.jpg' },
 
     // Alagoas
     { name: "RENAN FILHO", party: "MDB", state: "AL", bloc: "Centro", termEnd: "2031", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Senadores_da_57%C2%AA_Legislatura_%2852689452405%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852689452405%29.jpg' },
@@ -80,8 +80,8 @@ export const senateData = {
       party: "PT",
       state: "AP",
       bloc: "Centro-Esquerda",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Senadores_da_56%C2%AA_Legislatura_-_Randolfe_Rodrigues_%2846149534405%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_-_Randolfe_Rodrigues_%2846149534405%29.jpg'
     },
 
@@ -93,8 +93,8 @@ export const senateData = {
       party: "PSDB",
       state: "AM",
       bloc: "Centro-Direita",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Pl%C3%ADnio_Val%C3%A9rio.jpg/250px-Pl%C3%ADnio_Val%C3%A9rio.jpg'
     },
 
@@ -110,8 +110,8 @@ export const senateData = {
       party: "PT",
       state: "BA",
       bloc: "Centro-Esquerda",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Foto_oficial_de_Jaques_Wagner.jpg/250px-Foto_oficial_de_Jaques_Wagner.jpg'
     },
 
@@ -131,8 +131,8 @@ export const senateData = {
       party: "NOVO",
       state: "CE",
       bloc: "Centro-Direita",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Senador_Eduardo_Gir%C3%A3o.jpg/330px-Senador_Eduardo_Gir%C3%A3o.jpg',
     },
 
@@ -152,8 +152,8 @@ export const senateData = {
       party: "PDT",
       state: "DF",
       bloc: "Centro-Esquerda",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Senadora_Leila_Barros.jpg/330px-Senadora_Leila_Barros.jpg',
     },
 
@@ -165,8 +165,8 @@ export const senateData = {
       party: "PT",
       state: "ES",
       bloc: "Centro-Esquerda",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Senador_Fabiano_Contarato.jpg/330px-Senador_Fabiano_Contarato.jpg'
     },
 
@@ -189,7 +189,7 @@ export const senateData = {
       upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Senador_Jorge_Kajuru.jpg/330px-Senador_Jorge_Kajuru.jpg'
     },
-    { name: "VANDERLAN CARDOSO", party: "PSD", state: "GO", bloc: "Centro", termEnd: "2029", upForReelection: false , image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Senador_Vanderlan_Cardoso.jpg/330px-Senador_Vanderlan_Cardoso.jpg'},
+    { name: "VANDERLAN CARDOSO", party: "PSD", state: "GO", bloc: "Centro", termEnd: "2027", upForReelection: true , image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Senador_Vanderlan_Cardoso.jpg/330px-Senador_Vanderlan_Cardoso.jpg'},
 
     // Maranhão
     {
@@ -210,7 +210,7 @@ export const senateData = {
       upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Senador_Weverton_%28MA%29.jpg/250px-Senador_Weverton_%28MA%29.jpg'
     },
-    { name: "ELIZIAME GAMA", party: "PSD", state: "MA", bloc: "Centro", termEnd: "2029", upForReelection: false,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Foto_oficial_de_Eliziane_Gama.jpg/330px-Foto_oficial_de_Eliziane_Gama.jpg' },
+    { name: "ELIZIAME GAMA", party: "PSD", state: "MA", bloc: "Centro", termEnd: "2027", upForReelection: true,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Foto_oficial_de_Eliziane_Gama.jpg/330px-Foto_oficial_de_Eliziane_Gama.jpg' },
 
     // Mato Grosso
     {
@@ -228,8 +228,8 @@ export const senateData = {
       party: "UNIÃO",
       state: "MT",
       bloc: "Centro-Direita",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Senador_Jayme_Campos.jpg/330px-Senador_Jayme_Campos.jpg'
     },
 
@@ -244,7 +244,7 @@ export const senateData = {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Senadora_Tereza_Cristina.jpg/250px-Senadora_Tereza_Cristina.jpg',
     },
     { name: "NELSINHO TRAD", party: "PSD", state: "MS", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Senadores_da_56%C2%AA_Legislatura_-_Nelson_Trad_Filho_%2832121443227%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_-_Nelson_Trad_Filho_%2832121443227%29.jpg' },
-    { name: "SORAYA THRONICKE", party: "PODE", state: "MS", bloc: "Centro", termEnd: "2029", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Senadores_da_57%C2%AA_Legislatura_%2852689032601%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852689032601%29.jpg' },
+    { name: "SORAYA THRONICKE", party: "PODE", state: "MS", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Senadores_da_57%C2%AA_Legislatura_%2852689032601%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852689032601%29.jpg' },
 
     // Minas Gerais
     {
@@ -257,12 +257,12 @@ export const senateData = {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Senadores_da_57%C2%AA_Legislatura_%2852689522963%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852689522963%29.jpg'
     },
     { name: "CARLOS VIANA", party: "PODE", state: "MG", bloc: "Centro", termEnd: "2027", upForReelection: true , image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Senador_Carlos_Viana.jpg/330px-Senador_Carlos_Viana.jpg'},
-    { name: "RODRIGO PACHECO", party: "PSD", state: "MG", bloc: "Centro", termEnd: "2029", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Senador_Rodrigo_Pacheco.jpg/330px-Senador_Rodrigo_Pacheco.jpg' },
+    { name: "RODRIGO PACHECO", party: "PSD", state: "MG", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Senador_Rodrigo_Pacheco.jpg/330px-Senador_Rodrigo_Pacheco.jpg' },
 
     // Pará
     { name: "BETO FARO", party: "PT", state: "PA", bloc: "Centro-Esquerda", termEnd: "2031", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Beto_Faro.jpg/250px-Beto_Faro.jpg' },
     { name: "JADER BARBALHO", party: "MDB", state: "PA", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Foto_oficial_de_Jader_Barbalho.jpg/250px-Foto_oficial_de_Jader_Barbalho.jpg' },
-    { name: "ZEQUINHA MARINHO", party: "PODE", state: "PA", bloc: "Centro", termEnd: "2029", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Zequinha_marinho_oficial.jpg/330px-Zequinha_marinho_oficial.jpg' },
+    { name: "ZEQUINHA MARINHO", party: "PODE", state: "PA", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Zequinha_marinho_oficial.jpg/330px-Zequinha_marinho_oficial.jpg' },
 
     // Paraíba
     {
@@ -275,7 +275,7 @@ export const senateData = {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Efraim_Filho_%28PB%29.jpg/330px-Efraim_Filho_%28PB%29.jpg',
     },
     { name: "VENEZIANO REGO", party: "MDB", state: "PB", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Senador_Veneziano_Vital_do_R%C3%AAgo.jpg/330px-Senador_Veneziano_Vital_do_R%C3%AAgo.jpg' },
-    { name: "DANIELLE RIBEIRO", party: "PSD", state: "PB", bloc: "Centro", termEnd: "2029", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Senadora_Daniella_Ribeiro_jpg.jpg/330px-Senadora_Daniella_Ribeiro_jpg.jpg' },
+    { name: "DANIELLE RIBEIRO", party: "PSD", state: "PB", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Senadora_Daniella_Ribeiro_jpg.jpg/330px-Senadora_Daniella_Ribeiro_jpg.jpg' },
 
     // Paraná
     {
@@ -293,8 +293,8 @@ export const senateData = {
       party: "PODE",
       state: "PR",
       bloc: "Centro",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Senador_Oriovisto_Guimar%C3%A3es.jpg/330px-Senador_Oriovisto_Guimar%C3%A3es.jpg'
     },
 
@@ -317,7 +317,7 @@ export const senateData = {
       upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Senadores_da_56%C2%AA_Legislatura_%2847017291821%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_%2847017291821%29.jpg'
     },
-    { name: "FERNANDO DUEIRE", party: "MDB", state: "PE", bloc: "Centro", termEnd: "2029", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Senadores_da_56%C2%AA_Legislatura_-Fernando_Dueire_%2852689898768%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_-Fernando_Dueire_%2852689898768%29.jpg' },
+    { name: "FERNANDO DUEIRE", party: "MDB", state: "PE", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Senadores_da_56%C2%AA_Legislatura_-Fernando_Dueire_%2852689898768%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_-Fernando_Dueire_%2852689898768%29.jpg' },
 
     // Piauí
     {
@@ -330,7 +330,7 @@ export const senateData = {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Senadores_da_57%C2%AA_Legislatura_%2852689032501%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852689032501%29.jpg'
     },
     { name: "CIRO NOGUEIRA", party: "PP", state: "PI", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true ,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Senador_Ciro_Nogueira_foto_oficial_2.jpg/250px-Senador_Ciro_Nogueira_foto_oficial_2.jpg'},
-    { name: "MARCELO CASTRO", party: "MDB", state: "PI", bloc: "Centro", termEnd: "2029", upForReelection: false,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Senador_Marcelo_Castro.jpg/330px-Senador_Marcelo_Castro.jpg' },
+    { name: "MARCELO CASTRO", party: "MDB", state: "PI", bloc: "Centro", termEnd: "2027", upForReelection: true,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Senador_Marcelo_Castro.jpg/330px-Senador_Marcelo_Castro.jpg' },
 
     // Rio de Janeiro
     { name: "ROMÁRIO", party: "PL", state: "RJ", bloc: "Centro-Direita", termEnd: "2031", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Senadores_da_57%C2%AA_Legislatura_%2852689451805%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852689451805%29.jpg' },
@@ -348,8 +348,8 @@ export const senateData = {
       party: "PL",
       state: "RJ",
       bloc: "Centro-Direita",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Fotos_Oficiais_dos_Senadores_da_56%C2%AA_Legislatura_-_Carlos_Portinho_%2852261786075%29.jpg/330px-Fotos_Oficiais_dos_Senadores_da_56%C2%AA_Legislatura_-_Carlos_Portinho_%2852261786075%29.jpg'
     },
 
@@ -364,7 +364,7 @@ export const senateData = {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Senadores_da_57%C2%AA_Legislatura_%2852689302344%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852689302344%29.jpg'
     },
     { name: "STYVENSON VALENTIM", party: "PODE", state: "RN", bloc: "Centro", termEnd: "2027", upForReelection: true,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Foto_oficial_de_Styvenson_Valentim.jpg/330px-Foto_oficial_de_Styvenson_Valentim.jpg' },
-    { name: "ZENAIDE MAIA", party: "PSD", state: "RN", bloc: "Centro", termEnd: "2029", upForReelection: false,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Foto_oficial_de_Zenaide_Maia.jpg/330px-Foto_oficial_de_Zenaide_Maia.jpg' },
+    { name: "ZENAIDE MAIA", party: "PSD", state: "RN", bloc: "Centro", termEnd: "2027", upForReelection: true,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Foto_oficial_de_Zenaide_Maia.jpg/330px-Foto_oficial_de_Zenaide_Maia.jpg' },
 
     // Rio Grande do Sul
     {
@@ -385,7 +385,7 @@ export const senateData = {
       upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Senador_Luis_Carlos_Heinze.jpg/330px-Senador_Luis_Carlos_Heinze.jpg',
     },
-    { name: "PAULO PAIM", party: "PT", state: "RS", bloc: "Centro-Esquerda", termEnd: "2029", upForReelection: false,
+    { name: "PAULO PAIM", party: "PT", state: "RS", bloc: "Centro-Esquerda", termEnd: "2027", upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Senadores_da_56%C2%AA_Legislatura_%2833188030238%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_%2833188030238%29.jpg',
      },
 
@@ -408,7 +408,7 @@ export const senateData = {
       upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Marcos_Rog%C3%A9rio_%28Rond%C3%B4nia%29.jpg/250px-Marcos_Rog%C3%A9rio_%28Rond%C3%B4nia%29.jpg'
     },
-    { name: "CONFÚCIO MOURA", party: "MDB", state: "RO", bloc: "Centro", termEnd: "2029", upForReelection: false,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Senador_Conf%C3%BAcio_Moura.jpg/330px-Senador_Conf%C3%BAcio_Moura.jpg' },
+    { name: "CONFÚCIO MOURA", party: "MDB", state: "RO", bloc: "Centro", termEnd: "2027", upForReelection: true,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Senador_Conf%C3%BAcio_Moura.jpg/330px-Senador_Conf%C3%BAcio_Moura.jpg' },
 
     // Roraima
     {
@@ -434,8 +434,8 @@ export const senateData = {
       party: "PSB",
       state: "RR",
       bloc: "Centro-Esquerda",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Senador_Chico_Rodrigues.jpg/330px-Senador_Chico_Rodrigues.jpg'
     },
 
@@ -450,7 +450,7 @@ export const senateData = {
       upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Senador_Esperidi%C3%A3o_Amin.jpg/330px-Senador_Esperidi%C3%A3o_Amin.jpg'
     },
-    { name: "IVETE DA SILVEIRA", party: "MDB", state: "SC", bloc: "Centro", termEnd: "2029", upForReelection: false,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Senadores_da_56%C2%AA_Legislatura_%2852689186291%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_%2852689186291%29.jpg' },
+    { name: "IVETE DA SILVEIRA", party: "MDB", state: "SC", bloc: "Centro", termEnd: "2027", upForReelection: true,image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Senadores_da_56%C2%AA_Legislatura_%2852689186291%29.jpg/330px-Senadores_da_56%C2%AA_Legislatura_%2852689186291%29.jpg' },
 
     // São Paulo
     {
@@ -463,7 +463,7 @@ export const senateData = {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Senadores_da_57%C2%AA_Legislatura_%2852689302869%29.jpg/330px-Senadores_da_57%C2%AA_Legislatura_%2852689302869%29.jpg'
     },
     { name: "ALEXANDRE GIORDANO", party: "MDB", state: "SP", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Foto_Oficial_de_Giordano_como_Senador_por_S%C3%A3o_Paulo.jpg/250px-Foto_Oficial_de_Giordano_como_Senador_por_S%C3%A3o_Paulo.jpg'},
-    { name: "MARA GABRILLI", party: "PSD", state: "SP", bloc: "Centro", termEnd: "2029", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Senadora_Mara_Gabrilli.jpg/250px-Senadora_Mara_Gabrilli.jpg' },
+    { name: "MARA GABRILLI", party: "PSD", state: "SP", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Senadora_Mara_Gabrilli.jpg/250px-Senadora_Mara_Gabrilli.jpg' },
 
     // Sergipe
     {
@@ -484,7 +484,7 @@ export const senateData = {
       upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Senador_Rog%C3%A9rio_Carvalho.jpg/330px-Senador_Rog%C3%A9rio_Carvalho.jpg',
     },
-    { name: "ALESSANDRO VIEIRA", party: "MDB", state: "SE", bloc: "Centro", termEnd: "2029", upForReelection: false, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Senador_Alessandro_Vieira.jpg/250px-Senador_Alessandro_Vieira.jpg' },
+    { name: "ALESSANDRO VIEIRA", party: "MDB", state: "SE", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Senador_Alessandro_Vieira.jpg/250px-Senador_Alessandro_Vieira.jpg' },
 
     // Tocantins
     {
@@ -502,8 +502,8 @@ export const senateData = {
       party: "PL",
       state: "TO",
       bloc: "Centro-Direita",
-      termEnd: "2029",
-      upForReelection: false,
+      termEnd: "2027",
+      upForReelection: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Senador_Eduardo_Gomes.jpg/250px-Senador_Eduardo_Gomes.jpg'
     },
   ] as Senator[],
