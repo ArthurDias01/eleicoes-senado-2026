@@ -1,17 +1,19 @@
 "use client"
 
-import { useState, useCallback, useMemo } from "react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { TrendingUp, TrendingDown, Minus, RotateCcw } from "lucide-react"
+import { getBlocColor, getBlocTextColor } from "@/lib/bloc-utils"
 import { senateData } from "@/lib/senate-data"
+import { Minus, RotateCcw, TrendingDown, TrendingUp } from "lucide-react"
+import { useCallback, useMemo, useState } from "react"
 
 interface MyProjectionProps {
   userProjections: Record<string, string[]>
   setUserProjections: (projections: Record<string, string[]>) => void
 }
+
 
 const originalProjections = {
   AC: ["Centro-Direita", "Centro-Direita"],
@@ -128,17 +130,15 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
 
   const handleProjectionChange = useCallback(
     (state: string, position: number, bloc: string) => {
-      setUserProjections((prev) => {
-        const newProjections = { ...prev }
-        if (!newProjections[state]) {
-          newProjections[state] = ["", ""]
-        }
-        newProjections[state] = [...newProjections[state]]
-        newProjections[state][position] = bloc
-        return newProjections
-      })
+      const newProjections = { ...userProjections }
+      if (!newProjections[state]) {
+        newProjections[state] = ["", ""]
+      }
+      newProjections[state] = [...newProjections[state]]
+      newProjections[state][position] = bloc
+      setUserProjections(newProjections)
     },
-    [setUserProjections],
+    [userProjections, setUserProjections],
   )
 
   const resetProjections = useCallback(() => {
@@ -151,18 +151,22 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
 
   // Calculate aggregates - memoized for performance
   const aggregates = useMemo(() => {
-    const currentComposition = { "Centro-Esquerda": 27, Centro: 25, "Centro-Direita": 29 }
+    const currentComposition = { "Centro-Esquerda": 27, Centro: 25, "Centro-Direita": 29, Bolsonarista: 0 }
 
     // Count senators NOT up for reelection (those with termEnd !== "2027")
-    const senatorsNotUpForReelection = { "Centro-Esquerda": 0, Centro: 0, "Centro-Direita": 0 }
+    const senatorsNotUpForReelection = { "Centro-Esquerda": 0, Centro: 0, "Centro-Direita": 0, Bolsonarista: 0 }
     senateData.senators
       .filter((senator) => senator.termEnd !== "2027")
       .forEach((senator) => {
         senatorsNotUpForReelection[senator.bloc as keyof typeof senatorsNotUpForReelection]++
+        // Count bolsonaro-aligned senators separately (they can overlap with blocs)
+        if (senator.bolsonaroAligned) {
+          senatorsNotUpForReelection.Bolsonarista++
+        }
       })
 
     // Count user projections (2 senators per state)
-    const userProjectedSeats = { "Centro-Esquerda": 0, Centro: 0, "Centro-Direita": 0 }
+    const userProjectedSeats = { "Centro-Esquerda": 0, Centro: 0, "Centro-Direita": 0, Bolsonarista: 0 }
     Object.values(userProjections).forEach((stateProjections) => {
       stateProjections.forEach((bloc) => {
         if (bloc && userProjectedSeats[bloc as keyof typeof userProjectedSeats] !== undefined) {
@@ -176,6 +180,7 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
       "Centro-Esquerda": senatorsNotUpForReelection["Centro-Esquerda"] + userProjectedSeats["Centro-Esquerda"],
       Centro: senatorsNotUpForReelection["Centro"] + userProjectedSeats["Centro"],
       "Centro-Direita": senatorsNotUpForReelection["Centro-Direita"] + userProjectedSeats["Centro-Direita"],
+      Bolsonarista: senatorsNotUpForReelection["Bolsonarista"] + userProjectedSeats["Bolsonarista"],
     }
 
     return {
@@ -187,6 +192,7 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
         "Centro-Esquerda": finalComposition["Centro-Esquerda"] - currentComposition["Centro-Esquerda"],
         Centro: finalComposition["Centro"] - currentComposition["Centro"],
         "Centro-Direita": finalComposition["Centro-Direita"] - currentComposition["Centro-Direita"],
+        Bolsonarista: finalComposition["Bolsonarista"] - currentComposition["Bolsonarista"],
       },
       totalUserSeats: Object.values(userProjectedSeats).reduce((sum, count) => sum + count, 0),
       totalFinalSeats: Object.values(finalComposition).reduce((sum, count) => sum + count, 0),
@@ -200,32 +206,6 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
   }, [userProjections])
 
   const totalElections = statesWithElections.length
-
-  const getBlocColor = useCallback((bloc: string) => {
-    switch (bloc) {
-      case "Centro-Esquerda":
-        return "border-red-200 bg-red-50"
-      case "Centro":
-        return "border-yellow-200 bg-yellow-50"
-      case "Centro-Direita":
-        return "border-blue-200 bg-blue-50"
-      default:
-        return "border-gray-200 bg-gray-50"
-    }
-  }, [])
-
-  const getBlocTextColor = useCallback((bloc: string) => {
-    switch (bloc) {
-      case "Centro-Esquerda":
-        return "text-red-700"
-      case "Centro":
-        return "text-yellow-700"
-      case "Centro-Direita":
-        return "text-blue-700"
-      default:
-        return "text-gray-700"
-    }
-  }, [])
 
   return (
     <div className="space-y-6">
@@ -290,6 +270,7 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
                 { label: "Centro-Esquerda", value: aggregates.finalComposition["Centro-Esquerda"], color: "#ef4444" },
                 { label: "Centro", value: aggregates.finalComposition["Centro"], color: "#eab308" },
                 { label: "Centro-Direita", value: aggregates.finalComposition["Centro-Direita"], color: "#3b82f6" },
+                { label: "Bolsonarista", value: aggregates.finalComposition["Bolsonarista"], color: "#22c55e" },
               ]}
             />
           </CardContent>
@@ -297,9 +278,9 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
       </div>
 
       {/* Agregados */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {Object.entries(aggregates.changes).map(([bloc, change]) => (
-          <Card key={bloc} className={getBlocColor(bloc)}>
+          <Card key={bloc} className={`border-2 ${getBlocColor(bloc)}`}>
             <CardHeader className="pb-3">
               <CardTitle className={`text-lg ${getBlocTextColor(bloc)}`}>{bloc}</CardTitle>
             </CardHeader>
@@ -367,43 +348,54 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
               </Select>
             </div>
 
-            {selectedState && (
-              <>
-                <div>
-                  <label className="text-sm font-medium mb-2 block">1º Senador - {selectedState}</label>
-                  <Select
-                    value={userProjections[selectedState]?.[0] || ""}
-                    onValueChange={(value) => handleProjectionChange(selectedState, 0, value)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Escolha o bloco..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Centro-Esquerda">Centro-Esquerda</SelectItem>
-                      <SelectItem value="Centro">Centro</SelectItem>
-                      <SelectItem value="Centro-Direita">Centro-Direita</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+            {selectedState && (() => {
+              const bolsonaristaCandidatesForState = senateData.senators.filter(
+                (s) => s.state === selectedState && s.bolsonaroAligned && s.upForReelection
+              )
+              return (
+                <>
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">1º Senador - {selectedState}</label>
+                    <Select
+                      value={userProjections[selectedState]?.[0] || ""}
+                      onValueChange={(value) => handleProjectionChange(selectedState, 0, value)}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Escolha o bloco..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Centro-Esquerda">Centro-Esquerda</SelectItem>
+                        <SelectItem value="Centro">Centro</SelectItem>
+                        <SelectItem value="Centro-Direita">Centro-Direita</SelectItem>
+                        {bolsonaristaCandidatesForState.length > 0 && (
+                          <SelectItem value="Bolsonarista">Bolsonarista</SelectItem>
+                        )}
+                      </SelectContent>
+                    </Select>
+                  </div>
 
-                <div>
-                  <label className="text-sm font-medium mb-2 block">2º Senador - {selectedState}</label>
-                  <Select
-                    value={userProjections[selectedState]?.[1] || ""}
-                    onValueChange={(value) => handleProjectionChange(selectedState, 1, value)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Escolha o bloco..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Centro-Esquerda">Centro-Esquerda</SelectItem>
-                      <SelectItem value="Centro">Centro</SelectItem>
-                      <SelectItem value="Centro-Direita">Centro-Direita</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </>
-            )}
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">2º Senador - {selectedState}</label>
+                    <Select
+                      value={userProjections[selectedState]?.[1] || ""}
+                      onValueChange={(value) => handleProjectionChange(selectedState, 1, value)}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Escolha o bloco..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Centro-Esquerda">Centro-Esquerda</SelectItem>
+                        <SelectItem value="Centro">Centro</SelectItem>
+                        <SelectItem value="Centro-Direita">Centro-Direita</SelectItem>
+                        {bolsonaristaCandidatesForState.length > 0 && (
+                          <SelectItem value="Bolsonarista">Bolsonarista</SelectItem>
+                        )}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </>
+              )
+            })()}
           </div>
         </CardContent>
       </Card>
@@ -419,6 +411,11 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
               const state = senateData.states.find((s) => s.code === stateCode)
               const userChoices = userProjections[stateCode] || ["", ""]
               const originalChoices = originalProjections[stateCode as keyof typeof originalProjections]
+              
+              // Get Bolsonarista candidates for this state
+              const bolsonaristaCandidates = senateData.senators.filter(
+                (s) => s.state === stateCode && s.bolsonaroAligned && s.upForReelection
+              )
 
               return (
                 <Card key={stateCode} className="p-3">
@@ -428,7 +425,7 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
                         <h4 className="font-semibold">{state?.name}</h4>
                         <p className="text-xs text-gray-600">({stateCode})</p>
                       </div>
-                      <div className="flex gap-1">
+                      <div className="flex gap-1 flex-wrap">
                         {userChoices.map(
                           (choice, index) =>
                             choice && (
@@ -439,15 +436,34 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
                                     ? "bg-red-100 text-red-800"
                                     : choice === "Centro"
                                       ? "bg-yellow-100 text-yellow-800"
-                                      : "bg-blue-100 text-blue-800"
+                                      : choice === "Bolsonarista"
+                                        ? "bg-green-100 text-green-800"
+                                        : "bg-blue-100 text-blue-800"
                                 }`}
                               >
-                                {choice.split("-")[1] || choice}
+                                {choice === "Bolsonarista" ? "Bolsonarista" : choice.split("-")[1] || choice}
                               </Badge>
                             ),
                         )}
                       </div>
                     </div>
+                    
+                    {bolsonaristaCandidates.length > 0 && (
+                      <div className="text-xs">
+                        <span className="text-gray-500">Candidatos Bolsonaristas: </span>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {bolsonaristaCandidates.map((candidate) => (
+                            <Badge
+                              key={candidate.name}
+                              variant="outline"
+                              className="text-xs bg-green-50 text-green-700 border-green-300"
+                            >
+                              {candidate.name}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <div className="text-xs space-y-1">
                       <div>
@@ -468,49 +484,105 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
 
                     <div className="space-y-2">
                       <div className="text-xs font-medium text-gray-700">1º Senador:</div>
-                      <div className="flex gap-1">
-                        {["Centro-Esquerda", "Centro", "Centro-Direita"].map((bloc) => (
+                      <div className="flex flex-wrap gap-1">
+                        {["Centro-Esquerda", "Centro", "Centro-Direita"].map((bloc) => {
+                          const bolsonaristaForBloc = bolsonaristaCandidates.filter(
+                            (c) => c.bloc === bloc
+                          )
+                          return (
+                            <div key={bloc} className="flex flex-col gap-1">
+                              <Button
+                                size="sm"
+                                variant={userChoices[0] === bloc ? "default" : "outline"}
+                                className={`text-xs px-2 py-1 ${
+                                  userChoices[0] === bloc
+                                    ? bloc === "Centro-Esquerda"
+                                      ? "bg-red-600 hover:bg-red-700"
+                                      : bloc === "Centro"
+                                        ? "bg-yellow-600 hover:bg-yellow-700"
+                                        : "bg-blue-600 hover:bg-blue-700"
+                                    : ""
+                                }`}
+                                onClick={() => handleProjectionChange(stateCode, 0, bloc)}
+                              >
+                                {bloc.split("-")[1] || bloc}
+                              </Button>
+                              {bolsonaristaForBloc.length > 0 && userChoices[0] === bloc && (
+                                <Badge
+                                  variant="outline"
+                                  className="text-[10px] bg-green-50 text-green-700 border-green-300"
+                                >
+                                  {bolsonaristaForBloc.length} Bolsonarista{bolsonaristaForBloc.length > 1 ? 's' : ''}
+                                </Badge>
+                              )}
+                            </div>
+                          )
+                        })}
+                        {bolsonaristaCandidates.length > 0 && (
                           <Button
-                            key={bloc}
                             size="sm"
-                            variant={userChoices[0] === bloc ? "default" : "outline"}
+                            variant={userChoices[0] === "Bolsonarista" ? "default" : "outline"}
                             className={`text-xs px-2 py-1 ${
-                              userChoices[0] === bloc
-                                ? bloc === "Centro-Esquerda"
-                                  ? "bg-red-600 hover:bg-red-700"
-                                  : bloc === "Centro"
-                                    ? "bg-yellow-600 hover:bg-yellow-700"
-                                    : "bg-blue-600 hover:bg-blue-700"
+                              userChoices[0] === "Bolsonarista"
+                                ? "bg-green-600 hover:bg-green-700 text-white"
                                 : ""
                             }`}
-                            onClick={() => handleProjectionChange(stateCode, 0, bloc)}
+                            onClick={() => handleProjectionChange(stateCode, 0, "Bolsonarista")}
                           >
-                            {bloc.split("-")[1] || bloc}
+                            Bolsonarista
                           </Button>
-                        ))}
+                        )}
                       </div>
 
                       <div className="text-xs font-medium text-gray-700">2º Senador:</div>
-                      <div className="flex gap-1">
-                        {["Centro-Esquerda", "Centro", "Centro-Direita"].map((bloc) => (
+                      <div className="flex flex-wrap gap-1">
+                        {["Centro-Esquerda", "Centro", "Centro-Direita"].map((bloc) => {
+                          const bolsonaristaForBloc = bolsonaristaCandidates.filter(
+                            (c) => c.bloc === bloc
+                          )
+                          return (
+                            <div key={bloc} className="flex flex-col gap-1">
+                              <Button
+                                size="sm"
+                                variant={userChoices[1] === bloc ? "default" : "outline"}
+                                className={`text-xs px-2 py-1 ${
+                                  userChoices[1] === bloc
+                                    ? bloc === "Centro-Esquerda"
+                                      ? "bg-red-600 hover:bg-red-700"
+                                      : bloc === "Centro"
+                                        ? "bg-yellow-600 hover:bg-yellow-700"
+                                        : "bg-blue-600 hover:bg-blue-700"
+                                    : ""
+                                }`}
+                                onClick={() => handleProjectionChange(stateCode, 1, bloc)}
+                              >
+                                {bloc.split("-")[1] || bloc}
+                              </Button>
+                              {bolsonaristaForBloc.length > 0 && userChoices[1] === bloc && (
+                                <Badge
+                                  variant="outline"
+                                  className="text-[10px] bg-green-50 text-green-700 border-green-300"
+                                >
+                                  {bolsonaristaForBloc.length} Bolsonarista{bolsonaristaForBloc.length > 1 ? 's' : ''}
+                                </Badge>
+                              )}
+                            </div>
+                          )
+                        })}
+                        {bolsonaristaCandidates.length > 0 && (
                           <Button
-                            key={bloc}
                             size="sm"
-                            variant={userChoices[1] === bloc ? "default" : "outline"}
+                            variant={userChoices[1] === "Bolsonarista" ? "default" : "outline"}
                             className={`text-xs px-2 py-1 ${
-                              userChoices[1] === bloc
-                                ? bloc === "Centro-Esquerda"
-                                  ? "bg-red-600 hover:bg-red-700"
-                                  : bloc === "Centro"
-                                    ? "bg-yellow-600 hover:bg-yellow-700"
-                                    : "bg-blue-600 hover:bg-blue-700"
+                              userChoices[1] === "Bolsonarista"
+                                ? "bg-green-600 hover:bg-green-700 text-white"
                                 : ""
                             }`}
-                            onClick={() => handleProjectionChange(stateCode, 1, bloc)}
+                            onClick={() => handleProjectionChange(stateCode, 1, "Bolsonarista")}
                           >
-                            {bloc.split("-")[1] || bloc}
+                            Bolsonarista
                           </Button>
-                        ))}
+                        )}
                       </div>
                     </div>
                   </div>
@@ -542,6 +614,9 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
                     <div>
                       Centro-Direita: <span className="font-medium">29 assentos (35.8%)</span>
                     </div>
+                    <div>
+                      Bolsonarista: <span className="font-medium">0 assentos (0%)</span>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -566,6 +641,13 @@ export function MyProjection({ userProjections, setUserProjections }: MyProjecti
                       <span className="font-medium">
                         {aggregates.finalComposition["Centro-Direita"]} assentos (
                         {((aggregates.finalComposition["Centro-Direita"] / 81) * 100).toFixed(1)}%)
+                      </span>
+                    </div>
+                    <div>
+                      Bolsonarista:{" "}
+                      <span className="font-medium">
+                        {aggregates.finalComposition["Bolsonarista"]} assentos (
+                        {((aggregates.finalComposition["Bolsonarista"] / 81) * 100).toFixed(1)}%)
                       </span>
                     </div>
                   </div>

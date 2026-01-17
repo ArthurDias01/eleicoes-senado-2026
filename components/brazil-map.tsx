@@ -1,6 +1,7 @@
 "use client"
 
 import { Card } from "@/components/ui/card"
+import { getBlocBgColor, getBlocTextColor } from "@/lib/bloc-utils"
 
 const stateProjections = {
   AC: "Centro-Direita",
@@ -30,32 +31,6 @@ const stateProjections = {
   SP: "Centro-Direita",
   SE: "Centro-Esquerda",
   TO: "Centro-Esquerda",
-}
-
-const getBlocColor = (bloc: string) => {
-  switch (bloc) {
-    case "Centro-Esquerda":
-      return "bg-red-500"
-    case "Centro":
-      return "bg-yellow-500"
-    case "Centro-Direita":
-      return "bg-blue-500"
-    default:
-      return "bg-gray-300"
-  }
-}
-
-const getBlocTextColor = (bloc: string) => {
-  switch (bloc) {
-    case "Centro-Esquerda":
-      return "text-red-700"
-    case "Centro":
-      return "text-yellow-700"
-    case "Centro-Direita":
-      return "text-blue-700"
-    default:
-      return "text-gray-700"
-  }
 }
 
 export function BrazilMap() {
@@ -89,7 +64,7 @@ export function BrazilMap() {
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
         {Object.entries(stateProjections).map(([state, bloc]) => (
           <Card key={state} className="p-3 text-center hover:shadow-md transition-shadow">
-            <div className={`w-8 h-8 mx-auto mb-2 rounded ${getBlocColor(bloc)}`}></div>
+            <div className={`w-8 h-8 mx-auto mb-2 rounded ${getBlocBgColor(bloc)}`}></div>
             <div className="font-bold text-sm">{state}</div>
             <div className={`text-xs ${getBlocTextColor(bloc)}`}>{bloc.split("-")[1] || bloc}</div>
           </Card>

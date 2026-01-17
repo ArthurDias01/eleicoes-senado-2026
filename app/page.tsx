@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { senateData } from "@/lib/senate-data"
 import { Filter, GithubIcon, Minus, Search, TrendingDown, TrendingUp } from "lucide-react"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 export default function SenateDashboard() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -21,16 +21,18 @@ export default function SenateDashboard() {
   const [selectedState, setSelectedState] = useState<string>("all")
   const [userProjections, setUserProjections] = useState<Record<string, string[]>>({})
 
-  const filteredSenators = senateData.senators.filter((senator) => {
-    const matchesSearch =
-      senator.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      senator.party.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      senator.state.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesBloc = selectedBloc === "all" || senator.bloc === selectedBloc
-    const matchesState = selectedState === "all" || senator.state === selectedState
+  const filteredSenators = useMemo(() => {
+    return senateData.senators.filter((senator) => {
+      const matchesSearch =
+        senator.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        senator.party.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        senator.state.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesBloc = selectedBloc === "all" || senator.bloc === selectedBloc
+      const matchesState = selectedState === "all" || senator.state === selectedState
 
-    return matchesSearch && matchesBloc && matchesState
-  })
+      return matchesSearch && matchesBloc && matchesState
+    })
+  }, [searchTerm, selectedBloc, selectedState])
 
   const currentComposition = {
     "Centro-Esquerda": 27,
@@ -439,6 +441,52 @@ export default function SenateDashboard() {
                 </CardContent>
               </Card>
             </div>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-green-700">O que significa "BOLSONARISTA"</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <Badge variant="secondary" className="bg-green-100 text-green-800">
+                    Definição Política
+                  </Badge>
+                  <p className="text-sm text-gray-600">
+                    Um senador é considerado <strong>(Bolsonarista)</strong> quando se identifica com o
+                    bolsonarismo, movimento político associado ao ex-presidente Jair Bolsonaro. Esta posição vai além de
+                    simples apoio político e envolve um conjunto de crenças, práticas e discursos específicos.
+                  </p>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm text-gray-800">Principais características:</h4>
+                    <ul className="text-xs text-gray-600 space-y-1 list-disc list-inside">
+                      <li>
+                        <strong>Conservadorismo social:</strong> Defesa de valores tradicionais (família, religião) e
+                        moral conservadora
+                      </li>
+                      <li>
+                        <strong>Retórica antissistema:</strong> Crítica ao establishment político e partidos
+                        tradicionais
+                      </li>
+                      <li>
+                        <strong>Nacionalismo e militarismo:</strong> Valorização de símbolos nacionais e presença
+                        militar na política
+                      </li>
+                      <li>
+                        <strong>Negacionismo:</strong> Questionamento de consensos científicos e eleitorais, uso de
+                        teorias da conspiração
+                      </li>
+                      <li>
+                        <strong>Culto à personalidade:</strong> Forte identificação com a liderança de Jair Bolsonaro
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="text-xs text-gray-500 pt-2 border-t">
+                    <strong>Critérios para a tag:</strong> Senadores que apoiam publicamente Bolsonaro, defendem políticas
+                    alinhadas ao bolsonarismo, ou participam de grupos e manifestações bolsonaristas.
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             <Card>
               <CardHeader>

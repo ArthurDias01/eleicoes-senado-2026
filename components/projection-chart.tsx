@@ -1,5 +1,7 @@
 "use client"
 
+import { getBlocHexColor } from "@/lib/bloc-utils"
+
 export function ProjectionChart() {
   const data = [
     { bloc: "Centro-Esquerda", current: 27, projected: 17, change: -10 },
@@ -9,25 +11,12 @@ export function ProjectionChart() {
 
   const maxValue = Math.max(...data.map((d) => Math.max(d.current, d.projected)))
 
-  const getBlocColor = (bloc: string) => {
-    switch (bloc) {
-      case "Centro-Esquerda":
-        return "#ef4444"
-      case "Centro":
-        return "#eab308"
-      case "Centro-Direita":
-        return "#3b82f6"
-      default:
-        return "#6b7280"
-    }
-  }
-
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {data.map((item) => (
           <div key={item.bloc} className="space-y-4">
-            <h4 className="font-semibold text-center" style={{ color: getBlocColor(item.bloc) }}>
+            <h4 className="font-semibold text-center" style={{ color: getBlocHexColor(item.bloc) }}>
               {item.bloc}
             </h4>
 
@@ -43,7 +32,7 @@ export function ProjectionChart() {
                     className="h-3 rounded-full"
                     style={{
                       width: `${(item.current / maxValue) * 100}%`,
-                      backgroundColor: getBlocColor(item.bloc),
+                      backgroundColor: getBlocHexColor(item.bloc),
                       opacity: 0.7,
                     }}
                   />
@@ -61,7 +50,7 @@ export function ProjectionChart() {
                     className="h-3 rounded-full"
                     style={{
                       width: `${(item.projected / maxValue) * 100}%`,
-                      backgroundColor: getBlocColor(item.bloc),
+                      backgroundColor: getBlocHexColor(item.bloc),
                     }}
                   />
                 </div>

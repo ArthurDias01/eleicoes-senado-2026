@@ -1,5 +1,7 @@
 "use client"
 
+import { getBlocHexColor } from "@/lib/bloc-utils"
+
 interface BlocChartProps {
   current: Record<string, number>
   projected: Record<string, number>
@@ -8,19 +10,6 @@ interface BlocChartProps {
 export function BlocChart({ current, projected }: BlocChartProps) {
   const blocs = Object.keys(current)
   const total = Object.values(current).reduce((sum, val) => sum + val, 0)
-
-  const getBlocColor = (bloc: string) => {
-    switch (bloc) {
-      case "Centro-Esquerda":
-        return "#ef4444"
-      case "Centro":
-        return "#eab308"
-      case "Centro-Direita":
-        return "#3b82f6"
-      default:
-        return "#6b7280"
-    }
-  }
 
   return (
     <div className="space-y-6">
@@ -43,7 +32,7 @@ export function BlocChart({ current, projected }: BlocChartProps) {
                     className="h-2 rounded-full transition-all duration-500"
                     style={{
                       width: `${percentage}%`,
-                      backgroundColor: getBlocColor(bloc),
+                      backgroundColor: getBlocHexColor(bloc),
                     }}
                   />
                 </div>
@@ -83,7 +72,7 @@ export function BlocChart({ current, projected }: BlocChartProps) {
                     className="h-2 rounded-full transition-all duration-500"
                     style={{
                       width: `${percentage}%`,
-                      backgroundColor: getBlocColor(bloc),
+                      backgroundColor: getBlocHexColor(bloc),
                     }}
                   />
                 </div>

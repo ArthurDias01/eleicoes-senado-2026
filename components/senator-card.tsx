@@ -1,27 +1,16 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { getBlocColor } from "@/lib/bloc-utils"
 import type { Senator } from "@/lib/senate-data"
+import { memo } from "react"
 
 interface SenatorCardProps {
   senator: Senator
 }
 
-const getBlocColor = (bloc: string) => {
-  switch (bloc) {
-    case "Centro-Esquerda":
-      return "bg-red-100 text-red-800 border-red-200"
-    case "Centro":
-      return "bg-yellow-100 text-yellow-800 border-yellow-200"
-    case "Centro-Direita":
-      return "bg-blue-100 text-blue-800 border-blue-200"
-    default:
-      return "bg-gray-100 text-gray-800 border-gray-200"
-  }
-}
-
-export function SenatorCard({ senator }: SenatorCardProps) {
+export const SenatorCard = memo(function SenatorCard({ senator }: SenatorCardProps) {
   return (
-    <Card className="hover:shadow-md transition-shadow">
+    <Card className={`hover:shadow-md transition-shadow ${senator.bolsonaroAligned ? 'border-2 border-green-600' : ''}`}>
       <CardHeader className="pb-3">
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
@@ -52,6 +41,12 @@ export function SenatorCard({ senator }: SenatorCardProps) {
         <div className="space-y-2">
           <Badge className={`text-xs ${getBlocColor(senator.bloc)}`}>{senator.bloc}</Badge>
 
+          {senator.bolsonaroAligned && (
+            <Badge className="text-xs bg-green-600 text-white hover:bg-green-700">
+              BOLSONARISTA
+            </Badge>
+          )}
+
           {senator.upForReelection && (
             <Badge variant="outline" className="text-xs bg-orange-50 text-orange-700 border-orange-200">
               Disputa 2026
@@ -65,4 +60,4 @@ export function SenatorCard({ senator }: SenatorCardProps) {
       </CardContent>
     </Card>
   )
-}
+})
