@@ -615,7 +615,7 @@ export const senateData = {
     { name: "FERNANDO MÁXIMO", party: "PL", state: "RO", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Fernando+M%C3%A1ximo&background=14213d&color=fff&size=512' },
 
     // Roraima
-    { name: "HÉLIO LOPES", party: "PL", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Helio+Lopes&background=14213d&color=fff&size=512' },
+    { name: "HÉLIO LOPES", party: "PL", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/204444.jpg' },
     { name: "ANTONIO DENARIUM", party: "PP", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Antonio_Denarium.jpg' },
     { name: "CARLOS BOLSONARO", party: "PL", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Carlos_Bolsonaro_durante_Encontro_Brasil-R%C3%BAssia_em_2022.jpg' },
     { name: "NICOLETTI", party: "PL", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Nicoletti&background=14213d&color=fff&size=512' },
