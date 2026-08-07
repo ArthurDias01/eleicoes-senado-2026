@@ -1,0 +1,17 @@
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - "@napi-rs/wasm-runtime"
+  - postcss
+  - next
+  - "@next/env"
+  - "@next/swc-darwin-arm64"
+  - "@next/swc-darwin-x64"
+  - "@next/swc-linux-arm64-gnu"
+  - "@next/swc-linux-arm64-musl"
+  - "@next/swc-linux-x64-gnu"
+  - "@next/swc-linux-x64-musl"
+  - "@next/swc-win32-arm64-msvc"
+  - "@next/swc-win32-x64-msvc"
+trustPolicy: no-downgrade
+overrides:
+  postcss: 8.5.23

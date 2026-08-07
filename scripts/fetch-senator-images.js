@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
@@ -5,18 +6,6 @@ const path = require('path');
 // Read senators from JSON file
 const senatorsPath = path.join(__dirname, '..', 'senators.json');
 const data = JSON.parse(fs.readFileSync(senatorsPath, 'utf-8'));
-
-const females = new Set([
-  'MÁRCIA BITTAR',
-  'RAYSSA FURLAN',
-  'DRA. SILVANA',
-  'MICHELLE BOLSONARO',
-  'BIA KICIS',
-  'GRACINHA CAIADO',
-  'CRISTINA GRAEML',
-  'CAROLINE DE TONI',
-  'JÚLIA ZANATTA'
-]);
 
 async function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

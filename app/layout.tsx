@@ -1,15 +1,23 @@
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
-
-const geist = Geist({
-  subsets: ['latin'],
-})
-
+import { Archivo_Black, DM_Sans } from 'next/font/google';
 import './globals.css';
 
+const displayFont = Archivo_Black({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const bodyFont = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'Projeção de Senadores 2026',
-  description: 'Projeção de Senadores 2026',
+  title: 'Senado 26 — Radar político brasileiro',
+  description: 'Leitura interativa das eleições para o Senado Federal em 2026.',
   generator: 'Next.js',
 }
 
@@ -19,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${geist.className}`}>
-      <body>{children}</body>
+    <html lang="pt-BR" className={`${displayFont.variable} ${bodyFont.variable}`} style={{ colorScheme: "dark" }}>
+      <body className="touch-manipulation antialiased">{children}</body>
     </html>
   )
 }

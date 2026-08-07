@@ -1,6 +1,6 @@
 "use client"
 
-import { getBlocHexColor } from "@/lib/bloc-utils"
+import { changeToneClass, getBlocHexColor } from "@/lib/bloc-utils"
 
 interface BlocChartProps {
   current: Record<string, number>
@@ -15,7 +15,9 @@ export function BlocChart({ current, projected }: BlocChartProps) {
     <div className="space-y-6">
       {/* Current Composition */}
       <div>
-        <h4 className="font-semibold mb-3">Composição Atual (2025)</h4>
+        <h4 className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
+          Composição Atual (2025)
+        </h4>
         <div className="space-y-3">
           {blocs.map((bloc) => {
             const percentage = (current[bloc] / total) * 100
@@ -23,13 +25,13 @@ export function BlocChart({ current, projected }: BlocChartProps) {
               <div key={bloc} className="space-y-1">
                 <div className="flex justify-between text-sm">
                   <span>{bloc}</span>
-                  <span className="font-medium">
+                  <span className="font-medium tabular-nums">
                     {current[bloc]} ({percentage.toFixed(1)}%)
                   </span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="h-2 w-full rounded-full bg-ink/10">
                   <div
-                    className="h-2 rounded-full transition-all duration-500"
+                    className="h-2 rounded-full transition-[width] duration-500"
                     style={{
                       width: `${percentage}%`,
                       backgroundColor: getBlocHexColor(bloc),
@@ -44,7 +46,7 @@ export function BlocChart({ current, projected }: BlocChartProps) {
 
       {/* Projected Composition */}
       <div>
-        <h4 className="font-semibold mb-3">Projeção Pós-2026</h4>
+        <h4 className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">Projeção Pós-2026</h4>
         <div className="space-y-3">
           {blocs.map((bloc) => {
             const percentage = (projected[bloc] / total) * 100
@@ -54,22 +56,18 @@ export function BlocChart({ current, projected }: BlocChartProps) {
                 <div className="flex justify-between text-sm">
                   <span>{bloc}</span>
                   <div className="flex items-center gap-2">
-                    <span className="font-medium">
+                    <span className="font-medium tabular-nums">
                       {projected[bloc]} ({percentage.toFixed(1)}%)
                     </span>
-                    <span
-                      className={`text-xs ${
-                        change > 0 ? "text-green-600" : change < 0 ? "text-red-600" : "text-gray-600"
-                      }`}
-                    >
+                    <span className={`text-xs tabular-nums ${changeToneClass(change)}`}>
                       ({change > 0 ? "+" : ""}
                       {change})
                     </span>
                   </div>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="h-2 w-full rounded-full bg-ink/10">
                   <div
-                    className="h-2 rounded-full transition-all duration-500"
+                    className="h-2 rounded-full transition-[width] duration-500"
                     style={{
                       width: `${percentage}%`,
                       backgroundColor: getBlocHexColor(bloc),

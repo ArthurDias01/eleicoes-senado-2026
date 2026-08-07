@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = require('path');
 
@@ -32,7 +33,6 @@ let notFoundCount = 0;
 const notFound = [];
 
 // Match pattern: image: '' or image: ""
-const imagePattern = /image:\s*['"]\s*['"]/g;
 const lines = senateDataContent.split('\n');
 
 for (let i = 0; i < lines.length; i++) {

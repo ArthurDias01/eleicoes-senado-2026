@@ -1,94 +1,480 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@theme {
+  /* Campaign palette — deep navy field, warm ink, gold accent */
+  --color-navy: #0a1626;
+  --color-navy-deep: #060f1b;
+  --color-surface: #10203a;
+  --color-surface-2: #16294a;
+  --color-ink: #f5f0e6;
+  --color-muted: #94a5bb;
+  --color-line: #22344f;
+  --color-gold: #e6b84f;
+  --color-gold-soft: #f6dc9b;
+
+  /* Bloc identity */
+  --color-left: #e4574f;
+  --color-left-soft: #ffb0aa;
+  --color-center: #e6b84f;
+  --color-center-soft: #f6dc9b;
+  --color-right: #4d94e0;
+  --color-right-soft: #a3cbf5;
+  --color-bolso: #2fae72;
+  --color-bolso-soft: #7fe3ad;
+
+  /* shadcn semantic aliases */
+  --color-background: var(--color-navy);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-surface);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-surface-2);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-gold);
+  --color-primary-foreground: var(--color-navy-deep);
+  --color-secondary: var(--color-surface-2);
+  --color-secondary-foreground: var(--color-ink);
+  --color-muted-foreground: var(--color-muted);
+  --color-accent: var(--color-surface-2);
+  --color-accent-foreground: var(--color-ink);
+  --color-destructive: var(--color-left);
+  --color-destructive-foreground: var(--color-ink);
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-ring: var(--color-gold);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.4rem;
+  --radius-lg: 0.6rem;
+  --radius-xl: 0.9rem;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --animate-rise: rise 640ms var(--ease-out-soft) both;
+  --animate-tab-panel: tab-panel-in 200ms var(--ease-out-soft) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(1.1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes tab-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.35rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
-@layer utilities {
-  .text-balance {
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-line);
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    color: var(--color-ink);
+    background: var(--color-navy);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    color: var(--color-navy-deep);
+    background: var(--color-gold);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  #dashboard-content,
+  #analysis-tabs {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@layer components {
+  /* ---------- Page frame ---------- */
+  .campaign-page {
+    min-height: 100vh;
+    overflow-x: clip;
+    background:
+      radial-gradient(60rem 40rem at 8% -10%, color-mix(in oklab, var(--color-gold) 12%, transparent), transparent),
+      linear-gradient(180deg, var(--color-navy) 0 40rem, var(--color-navy-deep) 90rem);
+  }
+
+  .campaign-shell {
+    width: min(100% - 2rem, 84rem);
+    margin-inline: auto;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero-shell {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: end;
+    min-height: min(40rem, 74vh);
+    margin-inline: calc((100vw - min(100vw - 2rem, 84rem)) / -2);
+    padding: clamp(4rem, 9vw, 7rem) max(1rem, calc((100vw - min(100vw - 2rem, 84rem)) / 2)) 3.5rem;
+    overflow: hidden;
+    background:
+      linear-gradient(92deg, rgba(6, 15, 27, 0.97) 0%, rgba(6, 15, 27, 0.86) 46%, rgba(6, 15, 27, 0.35) 100%),
+      linear-gradient(180deg, rgba(6, 15, 27, 0.1), rgba(6, 15, 27, 0.96)),
+      url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Congresso_Nacional_Brasil.jpg/1600px-Congresso_Nacional_Brasil.jpg")
+        center / cover;
+  }
+
+  .hero-shell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.16;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
+  }
+
+  .hero-copy {
+    width: min(100%, 46rem);
+    animation: var(--animate-rise);
+  }
+
+  .hero-kicker,
+  .section-kicker {
+    color: var(--color-gold-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .hero-brand {
+    margin-top: 0.9rem;
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 9rem);
+    line-height: 0.82;
+    letter-spacing: -0.08em;
+  }
+
+  .hero-brand span {
+    color: var(--color-gold);
+  }
+
+  .hero-title {
+    max-width: 38rem;
+    margin-top: 1.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4.4vw, 3.9rem);
+    line-height: 0.99;
+    letter-spacing: -0.045em;
     text-wrap: balance;
   }
+
+  .hero-description {
+    max-width: 34rem;
+    margin-top: 1.15rem;
+    color: color-mix(in oklab, var(--color-ink) 76%, transparent);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-source {
+    margin-top: 2rem;
+    color: color-mix(in oklab, var(--color-ink) 52%, transparent);
+    font-size: 0.75rem;
+  }
+
+  .hero-source a {
+    color: var(--color-gold-soft);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  /* ---------- Section intro + readout ---------- */
+  .dashboard-intro {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding: clamp(3rem, 7vw, 5rem) 0 2rem;
+  }
+
+  .dashboard-intro h2 {
+    max-width: 40rem;
+    margin-top: 0.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+    line-height: 1;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+
+  .dashboard-intro p {
+    max-width: 27rem;
+    color: var(--color-muted);
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  .readout-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-block: 1px solid var(--color-line);
+  }
+
+  .readout-item {
+    padding: 1.35rem 1.25rem;
+    border-right: 1px solid var(--color-line);
+  }
+
+  .readout-item:last-child {
+    border-right: 0;
+  }
+
+  .readout-label {
+    color: var(--color-muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .readout-value {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .readout-note {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.45rem;
+    color: var(--color-gold-soft);
+    font-size: 0.78rem;
+  }
+
+  /* ---------- Tabs ---------- */
+  .campaign-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    height: auto;
+    justify-content: flex-start;
+    gap: 0.15rem;
+    padding: 0;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--color-line);
+    border-radius: 0;
+    background: color-mix(in oklab, var(--color-navy) 88%, transparent);
+    backdrop-filter: blur(12px);
+    scrollbar-width: none;
+  }
+
+  .campaign-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .campaign-tab {
+    position: relative;
+    isolation: isolate;
+    min-width: max-content;
+    border-radius: 0;
+    padding: 0.95rem 0.95rem 0.85rem;
+    color: color-mix(in oklab, var(--color-ink) 82%, transparent);
+    background: transparent;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition:
+      color 160ms var(--ease-out-soft),
+      transform 140ms var(--ease-out-soft);
+  }
+
+  .campaign-tab::after {
+    content: "";
+    position: absolute;
+    left: 0.95rem;
+    right: 0.95rem;
+    bottom: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-gold);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 200ms var(--ease-out-soft);
+  }
+
+  .campaign-tab[data-state="active"] {
+    color: var(--color-gold-soft);
+    background: transparent;
+    font-weight: 700;
+    box-shadow: none;
+  }
+
+  .campaign-tab[data-state="active"]::after {
+    transform: scaleX(1);
+  }
+
+  .campaign-tab:active {
+    transform: scale(0.97);
+  }
+
+  .tab-panel {
+    animation: var(--animate-tab-panel);
+  }
+
+  /* ---------- Surfaces ---------- */
+  .campaign-panel {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(160deg, var(--color-surface), color-mix(in oklab, var(--color-navy-deep) 70%, var(--color-surface)));
+    box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.32);
+  }
+
+  .campaign-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: -0.015em;
+  }
+
+  .stat-tile {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background: color-mix(in oklab, var(--color-surface-2) 55%, transparent);
+  }
+
+  .campaign-grid {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 900px;
+  }
+
+  .senator-card {
+    transition: transform 200ms var(--ease-out-soft), border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .senator-card img {
+    transition: transform 240ms var(--ease-out-soft);
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 60;
+    transform: translateY(-250%);
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--radius-md);
+    color: var(--color-navy-deep);
+    background: var(--color-gold);
+    font-weight: 700;
+    transition: transform 160ms var(--ease-out-soft);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@media (max-width: 720px) {
+  .hero-shell {
+    min-height: 36rem;
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+    background-position: 62% center;
   }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+  .dashboard-intro {
+    display: block;
+  }
+
+  .dashboard-intro p {
+    margin-top: 1rem;
+  }
+
+  .readout-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .readout-item:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .readout-item:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--color-line);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@media (hover: hover) and (pointer: fine) {
+  .campaign-tab:hover {
+    color: var(--color-ink);
   }
-  body {
-    @apply bg-background text-foreground;
+
+  .campaign-tab:hover:not([data-state="active"])::after {
+    transform: scaleX(0.35);
+    background: color-mix(in oklab, var(--color-ink) 35%, transparent);
+  }
+
+  .senator-card:hover {
+    transform: translateY(-0.25rem);
+    border-color: color-mix(in oklab, var(--color-gold) 45%, var(--color-line));
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.4);
+  }
+
+  .senator-card:hover img {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
