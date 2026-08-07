@@ -521,6 +521,9 @@ export const senateData = {
     { name: "GLADSON CAMELI", party: "PP", state: "AC", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ti%C3%A3o_Bocalom_2022.jpg/500px-Ti%C3%A3o_Bocalom_2022.jpg' },
     { name: "MARA ROCHA", party: "REP", state: "AC", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Mara+Rocha&background=14213d&color=fff&size=512' },
 
+    // Alagoas
+    { name: "MARINA CÂNDIA", party: "PSDB", state: "AL", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Marina+Candia&background=14213d&color=fff&size=512' },
+
     // Amapá
     { name: "RAYSSA FURLAN", party: "PODE", state: "AP", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ti%C3%A3o_Bocalom_2022.jpg/500px-Ti%C3%A3o_Bocalom_2022.jpg' },
 
@@ -600,6 +603,9 @@ export const senateData = {
     { name: "CLÁUDIO CASTRO", party: "PL", state: "RJ", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Dep_Filipe_Barros.jpg' },
     { name: "CARLOS JORDY", party: "PL", state: "RJ", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Carlos+Jordy&background=14213d&color=fff&size=512' },
 
+
+    // Rio Grande do Norte
+    { name: "CORONEL HÉLIO", party: "PL", state: "RN", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/2020_CORONEL_HELIO_OLIVEIRA_CANDIDATO_PREFEITO_RN_NATAL_TSE_%28200000919401%29.jpg' },
 
     // Rio Grande do Sul
     { name: "LUCIANO ZUCCO", party: "PL", state: "RS", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Gilson_Machado_Neto_%28cropped%29.jpg' },
