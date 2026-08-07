@@ -1,3 +1,4 @@
+import { SenatorSocials } from "@/components/senator-socials"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { getBlocColor } from "@/lib/bloc-utils"
@@ -66,9 +67,10 @@ export const SenatorCard = memo(function SenatorCard({ senator }: SenatorCardPro
           ) : null}
         </div>
 
-        <p className="mt-3 border-t border-line pt-3 text-xs text-muted-foreground">
-          Mandato até {senator.termEnd}
-        </p>
+        <div className="mt-3 flex items-center justify-between gap-2 border-t border-line pt-3">
+          <p className="text-xs text-muted-foreground">Mandato até {senator.termEnd}</p>
+          <SenatorSocials name={senator.name} state={senator.state} />
+        </div>
       </CardContent>
     </Card>
   )
