@@ -67,7 +67,7 @@ export const senateData = {
     { name: "EUDÓCIA CALDAS", party: "PL", state: "AL", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Fotos_Oficiais_dos_Senadores_da_56%C2%AA_Legislatura_%2852261786370%29.jpg/1280px-Fotos_Oficiais_dos_Senadores_da_56%C2%AA_Legislatura_%2852261786370%29.jpg' },
 
     // Alagoas
-    { name: "ARTHUR LIRA", party: "PP", state: "AL", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Arthur+Lira&background=14213d&color=fff&size=512' },
+    { name: "ARTHUR LIRA", party: "PP", state: "AL", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/160541.jpg' },
 
     // Amapá
     {
@@ -512,14 +512,14 @@ export const senateData = {
       bolsonaroAligned: true,
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Senador_Eduardo_Gomes.jpg/250px-Senador_Eduardo_Gomes.jpg'
     },
-    { name: "CARLOS GAGUIM", party: "UNIÃO", state: "TO", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Carlos+Gaguim&background=14213d&color=fff&size=512' },
+    { name: "CARLOS GAGUIM", party: "UNIÃO", state: "TO", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/178993.jpg' },
 
     // New candidates from CSV (not current senators)
     // Acre
     { name: "TIÃO BOCALOM", party: "PL", state: "AC", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://classic.exame.com/wp-content/uploads/2024/10/TIAO-BOCALOM_Reproducao-Facebook.jpg' },
     { name: "MÁRCIA BITTAR", party: "PL", state: "AC", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://ac24horas.com/wp-content/uploads/2021/08/MARCIA-NO-BOA-2.jpg' },
     { name: "GLADSON CAMELI", party: "PP", state: "AC", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ti%C3%A3o_Bocalom_2022.jpg/500px-Ti%C3%A3o_Bocalom_2022.jpg' },
-    { name: "MARA ROCHA", party: "REP", state: "AC", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Mara+Rocha&background=14213d&color=fff&size=512' },
+    { name: "MARA ROCHA", party: "REP", state: "AC", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/204471.jpg' },
 
     // Amapá
     { name: "RAYSSA FURLAN", party: "PODE", state: "AP", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Ti%C3%A3o_Bocalom_2022.jpg/500px-Ti%C3%A3o_Bocalom_2022.jpg' },
@@ -560,7 +560,7 @@ export const senateData = {
     { name: "JOSÉ MEDEIROS", party: "PL", state: "MT", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Major_Vitor_Hugo_%28cropped%29.jpg' },
 
     // Maranhão
-    { name: "CIDÔNIO GONÇALVES", party: "PL", state: "MA", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Cid%C3%B4nio+Gon%C3%A7alves&background=14213d&color=fff&size=512' },
+    { name: "CIDÔNIO GONÇALVES", party: "PL", state: "MA", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/2026_CID%C3%94NIO_GON%C3%87ALVES_CANDIDATO_SENADOR_TSE_MA_%28100002537364%29.jpg' },
 
     // Mato Grosso do Sul
     { name: "GIANNI NOGUEIRA", party: "PL", state: "MS", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Gustavo_Gayer.jpg' },
@@ -584,21 +584,21 @@ export const senateData = {
 
     // Paraná
     { name: "FILIPE BARROS", party: "PL", state: "PR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/%C3%89der_Mauro_em_fevereiro_de_2017.jpg/250px-%C3%89der_Mauro_em_fevereiro_de_2017.jpg' },
-    { name: "DELTAN DALLAGNOL", party: "NOVO", state: "PR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Deltan+Dallagnol&background=14213d&color=fff&size=512' },
+    { name: "DELTAN DALLAGNOL", party: "NOVO", state: "PR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/220705.jpg' },
     { name: "CRISTINA GRAEML", party: "PODE", state: "PR", bloc: "Centro", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/%C3%89der_Mauro_em_fevereiro_de_2017.jpg/250px-%C3%89der_Mauro_em_fevereiro_de_2017.jpg' },
     { name: "RATINHO JUNIOR", party: "PSD", state: "PR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/%C3%89der_Mauro_em_fevereiro_de_2017.jpg/250px-%C3%89der_Mauro_em_fevereiro_de_2017.jpg' },
 
     // Pernambuco
     { name: "GILSON MACHADO", party: "PL", state: "PE", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Sergio-Queiroz.jpg/250px-Sergio-Queiroz.jpg' },
     { name: "ANDERSON FERREIRA", party: "PL", state: "PE", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Cabo_Gilberto_Silva_in_2025_%283x4%29.jpg' },
-    { name: "MENDONÇA FILHO", party: "PL", state: "PE", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Mendon%C3%A7a+Filho&background=14213d&color=fff&size=512' },
+    { name: "MENDONÇA FILHO", party: "PL", state: "PE", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/74428.jpg' },
 
     // Piauí
     { name: "TIAGO JUNQUEIRA", party: "PL", state: "PI", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Tiago+Junqueira&background=14213d&color=fff&size=512' },
 
     // Rio de Janeiro
     { name: "CLÁUDIO CASTRO", party: "PL", state: "RJ", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Dep_Filipe_Barros.jpg' },
-    { name: "CARLOS JORDY", party: "PL", state: "RJ", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Carlos+Jordy&background=14213d&color=fff&size=512' },
+    { name: "CARLOS JORDY", party: "PL", state: "RJ", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/204460.jpg' },
 
 
     // Rio Grande do Sul
@@ -612,13 +612,13 @@ export const senateData = {
     // Rondônia
     { name: "BRUNO SCHEID", party: "PL", state: "RO", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Dep._Luciano_Zucco_%28cropped%29.jpg' },
     { name: "MARCOS ROCHA", party: "UNIÃO", state: "RO", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Dep._Luciano_Zucco_%28cropped%29.jpg' },
-    { name: "FERNANDO MÁXIMO", party: "PL", state: "RO", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Fernando+M%C3%A1ximo&background=14213d&color=fff&size=512' },
+    { name: "FERNANDO MÁXIMO", party: "PL", state: "RO", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/220610.jpg' },
 
     // Roraima
     { name: "HÉLIO LOPES", party: "PL", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Ubiratan_Sanderson.jpg' },
     { name: "ANTONIO DENARIUM", party: "PP", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Onyx_Lorenzoni_em_18_de_julho_de_2019.jpg' },
     { name: "CARLOS BOLSONARO", party: "PL", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Deputado_Marcel_Van_Hattem_%28NOVO-RS%29_04_%28cropped%29.jpg' },
-    { name: "NICOLETTI", party: "PL", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Nicoletti&background=14213d&color=fff&size=512' },
+    { name: "NICOLETTI", party: "PL", state: "RR", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/204479.jpg' },
 
     // Santa Catarina
     { name: "CAROLINE DE TONI", party: "PL", state: "SC", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://istoe.com.br/wp-content/uploads/2022/03/bruno-scheid.jpg' },
