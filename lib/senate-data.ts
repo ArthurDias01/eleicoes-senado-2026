@@ -571,7 +571,7 @@ export const senateData = {
     { name: "PAULO GUEDES", party: "UNIÃO", state: "MG", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://m.media-amazon.com/images/I/B1Mcw9x-csS._SX450_CR0%2C0%2C450%2C450_.jpg' },
     { name: "EROS BIONDINI", party: "PL", state: "MG", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://m.media-amazon.com/images/I/B1Mcw9x-csS._SX450_CR0%2C0%2C450%2C450_.jpg' },
     { name: "DOMINGOS SÁVIO", party: "PL", state: "MG", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Domingos_S%C3%A1vio.jpg' },
-    { name: "EUCLYDES PETTERSEN", party: "REP", state: "MG", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://ui-avatars.com/api/?name=Euclydes+Pettersen&background=14213d&color=fff&size=512' },
+    { name: "EUCLYDES PETTERSEN", party: "REP", state: "MG", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/204482.jpg' },
     { name: "MARCELO ARO", party: "PP", state: "MG", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Marcelo_Aro_%2849552804657%29.jpg' },
 
     // Pará
@@ -627,12 +627,12 @@ export const senateData = {
 
     // São Paulo
     { name: "EDUARDO BOLSONARO", party: "PL", state: "SP", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2020-02-15_Cerim%C3%B4nia_de_Celebra%C3%A7%C3%A3o_de_40_anos_da_Igreja_Internacional_da_Gra%C3%A7a_de_Deus_%E2%80%93_Ano_da_Un%C3%A7%C3%A3o_Dobrada_%28cropped2%29.jpg/250px-2020-02-15_Cerim%C3%A2nia_de_Celebra%C3%A7%C3%A3o_de_40_anos_da_Igreja_Internacional_da_Gra%C3%A7a_de_Deus_%28cropped2%29.jpg' },
-    { name: "GUILHERME DERRITE", party: "PP", state: "SP", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Guilherme+Derrite&background=14213d&color=fff&size=512' },
+    { name: "GUILHERME DERRITE", party: "PP", state: "SP", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/204531.jpg' },
     { name: "ANDRÉ DO PRADO", party: "PL", state: "SP", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Andr%C3%A9+do+Prado&background=14213d&color=fff&size=512' },
     { name: "RICARDO SALLES", party: "NOVO", state: "SP", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Ricardo_Salles_em_8_de_agosto_de_2019_%282%29.jpg' },
 
     // Sergipe
-    { name: "RODRIGO VALADARES", party: "PL", state: "SE", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Rodrigo+Valadares&background=14213d&color=fff&size=512' },
+    { name: "RODRIGO VALADARES", party: "PL", state: "SE", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://www.camara.leg.br/internet/deputado/bandep/165470.jpg' },
     { name: "VALDEVAN NOVENTA", party: "PL", state: "SE", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, image: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Valdevan_Noventa.jpg' },
     { name: "CORONEL ROCHA", party: "PL", state: "SE", bloc: "Centro-Direita", termEnd: "2027", upForReelection: true, bolsonaroAligned: true, image: 'https://ui-avatars.com/api/?name=Coronel+Rocha&background=14213d&color=fff&size=512' },
   ] as Senator[],
